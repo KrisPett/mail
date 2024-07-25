@@ -15,10 +15,11 @@ import java.util.Properties;
 @Service
 @AllArgsConstructor
 public class EmailService {
+    EmailKeyProperties emailKeyProperties;
 
     public void sendMail() throws Exception {
         String username = "api";
-        String password = "";
+        String password = emailKeyProperties.getKey();
         String host = "live.smtp.mailtrap.io";
         String port = "587";
 
