@@ -1,1 +1,5 @@
-application-secret.properties
+**application-secret.properties**
+
+```
+email.key=
+```
