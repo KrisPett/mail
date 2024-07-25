@@ -8,8 +8,6 @@ import jakarta.mail.internet.MimeMultipart;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.net.URI;
 import java.util.Properties;
 
 @Service
@@ -17,13 +15,13 @@ import java.util.Properties;
 public class EmailService {
     EmailKeyProperties emailKeyProperties;
 
-    public void sendMail() throws Exception {
-        String username = "api";
-        String password = emailKeyProperties.getKey();
-        String host = "live.smtp.mailtrap.io";
-        String port = "587";
+    public void sendMail(String course, String email, String company, String phone, String participantsDesired, String date) throws Exception {
+        String username = emailKeyProperties.getUsername();
+        String password = emailKeyProperties.getPassword();
+        String host = emailKeyProperties.getHost();
+        String port = emailKeyProperties.getPort();
 
-        final Properties prop;
+        Properties prop;
         prop = new Properties();
         prop.put("mail.smtp.auth", true);
         prop.put("mail.smtp.starttls.enable", "true");
@@ -41,36 +39,25 @@ public class EmailService {
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress("mailtrap@demomailtrap.com"));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("koffep@gmail.com"));
-        message.setSubject("Mail Subject");
+        message.setSubject("Register Interest");
 
-        String msg = "This is my first email using JavaMailer";
+        String msg = String.format(
+                "Course: %s<br>" +
+                        "Email: %s<br>" +
+                        "Company: %s<br>" +
+                        "Phone: %s<br>" +
+                        "Participants Desired: %s<br>" +
+                        "Date: %s",
+                course, email, company, phone, participantsDesired, date
+        );
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
         mimeBodyPart.setContent(msg, "text/html; charset=utf-8");
-
-        String msgStyled = "This is my <b style='color:red;'>bold-red email</b> using JavaMailer";
-        MimeBodyPart mimeBodyPartWithStyledText = new MimeBodyPart();
-        mimeBodyPartWithStyledText.setContent(msgStyled, "text/html; charset=utf-8");
-
-        MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-        attachmentBodyPart.attachFile(getFile());
-
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(mimeBodyPart);
-        multipart.addBodyPart(mimeBodyPartWithStyledText);
-        multipart.addBodyPart(attachmentBodyPart);
-
         message.setContent(multipart);
 
         Transport.send(message);
-    }
-
-    private File getFile() throws Exception {
-        URI uri = this.getClass()
-                .getClassLoader()
-                .getResource("attachment.txt")
-                .toURI();
-        return new File(uri);
     }
 
 }

@@ -10,5 +10,8 @@ import org.springframework.context.annotation.Configuration;
 @Setter
 @Getter
 public class EmailKeyProperties {
-     String key;
+     String username;
+     String password;
+     String port;
+     String host;
 }

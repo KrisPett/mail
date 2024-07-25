@@ -14,8 +14,14 @@ public class SendEmailController {
 
     @PostMapping
     public String sendEmail(@RequestBody MessageRQ messageRQ) throws Exception {
-        sendEmailService.sendMail();
-        return "awdawdawd";
+        sendEmailService.sendMail(
+                messageRQ.course(),
+                messageRQ.email(),
+                messageRQ.company(),
+                messageRQ.phone(),
+                messageRQ.participantsDesired(),
+                messageRQ.date());
+        return "send email completed";
     }
 }
 
