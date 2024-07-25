@@ -1,0 +1,20 @@
+# docker build . -t email
+# docker-compose up
+# docker-compose down
+
+version: '3.9'
+
+services:
+  email:
+    container_name: email
+    image: email:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - chaincue-net
+
+networks:
+  chaincue-net:
+    name: chaincue-net
+    driver: bridge
+
