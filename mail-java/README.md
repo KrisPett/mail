@@ -24,3 +24,9 @@ curl -X POST --location "http://localhost:8080/send-email" \
           "date": "date"
         }'
 ```
+
+### Performance
+
+```
+5f2aedaa3b72   email-java   0.07%     189.3MiB / 46.99GiB   0.39%     19.3kB / 4.29kB   0B / 143kB   42
+```

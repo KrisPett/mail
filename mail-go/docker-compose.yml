@@ -1,0 +1,22 @@
+# docker build . -t email-go
+# docker-compose up
+# docker-compose down
+
+version: '3.9'
+
+services:
+  email-go:
+    container_name: email-go
+    image: email-go:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - chaincue-net
+#    volumes:
+#      - ./env:/env
+
+networks:
+  chaincue-net:
+    name: chaincue-net
+    driver: bridge
+

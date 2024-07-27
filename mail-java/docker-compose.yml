@@ -1,13 +1,14 @@
-# docker build . -t email
+# mvn clean install
+# docker build . -t email-java
 # docker-compose up
 # docker-compose down
 
 version: '3.9'
 
 services:
-  email:
-    container_name: email
-    image: email:latest
+  email-java:
+    container_name: email-java
+    image: email-java:latest
     ports:
       - "8080:8080"
     networks:
