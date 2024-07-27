@@ -1,3 +1,5 @@
+https://mailtrap.io/blog/golang-send-email/
+
 # .env
 
 Example .env file: **dev**
