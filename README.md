@@ -40,3 +40,4 @@ email-rust                      latest                            b892612fdd3e  
 
 - Golang is approximately 25.93 times more lightweight than Java in terms of memory usage.
 - Rust is approximately 45.42 times more lightweight than Java in terms of memory usage.
+- Java has the smallest image size (467MB), followed by Golang (560MB), with Rust having the largest image size (1.42GB).
