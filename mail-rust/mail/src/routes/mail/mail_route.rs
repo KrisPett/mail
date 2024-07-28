@@ -17,7 +17,6 @@ struct MessageRQ {
     date: String,
 }
 
-
 #[post("/send-email")]
 pub async fn send_email(message_rq: web::Json<MessageRQ>) -> Result<HttpResponse, Error> {
     log::info!("send_email");
