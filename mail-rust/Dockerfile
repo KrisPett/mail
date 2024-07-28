@@ -15,8 +15,8 @@ RUN cargo build --release
 
 FROM rust:1.77.2
 
-COPY --from=build /app/target/release/chaincue-real-estate-rust-api .
+COPY --from=build /app/target/release/mail .
 COPY ./.env ./.env
 
 EXPOSE 8080
-CMD ["./chaincue-real-estate-rust-api"]
+CMD ["./mail"]
