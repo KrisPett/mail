@@ -24,6 +24,6 @@ CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O   
 
 ## Summary
 
-Java: Uses the most memory (189.3MiB) and has the highest number of processes (42). 
-Golang: Uses significantly less memory (7.301MiB) and has fewer processes (9). 
-Rust: Uses the least memory (4.168MiB) and has a moderate number of processes (11).
+- Java: Uses the most memory (189.3MiB) and has the highest number of processes (42). 
+- Golang: Uses significantly less memory (7.301MiB) and has fewer processes (9). 
+- Rust: Uses the least memory (4.168MiB) and has a moderate number of processes (11).
