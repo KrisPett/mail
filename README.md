@@ -20,3 +20,10 @@ CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O   
 CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O   PIDS
 63bae4b03826   email-rust   0.05%     4.168MiB / 46.99GiB   0.01%     27.1kB / 6.42kB   0B / 0B     11
 ```
+
+
+## Summary
+
+Java: Uses the most memory (189.3MiB) and has the highest number of processes (42). 
+Golang: Uses significantly less memory (7.301MiB) and has fewer processes (9). 
+Rust: Uses the least memory (4.168MiB) and has a moderate number of processes (11).
